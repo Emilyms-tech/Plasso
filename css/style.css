@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap');
+
+:root {
+    --color-burgundy: #6E263B;
+    --color-cream: #F4EEE5;
+    --color-clay: #C58F78;
+    --color-wood: #B99A75;
+    --color-brown: #43352F;
+
+    --font-heading: 'Fraunces', serif;
+    --font-body: 'Figtree', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-cream);
+    color: var(--color-brown);
+    font-family: var(--font-body);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-burgundy);
+}
