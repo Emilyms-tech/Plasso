@@ -1,130 +1,63 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Plasso — Ideias que ganham forma</title>
-    <meta
-        name="description"
-        content="Transformamos ideias em objetos feitos com cuidado. Conheça a Plasso, um estúdio criativo de fabricação personalizada."
-    >
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plasso — Ideias que ganham forma</title>
+  <meta name="description" content="Transformamos ideias em objetos feitos com cuidado. Conheça a Plasso, um estúdio criativo de fabricação personalizada.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#inicio" class="logo" aria-label="Plasso, início">PLASSO<span class="logo-mark"></span></a>
+      <nav class="navigation" id="navigation" aria-label="Principal">
+        <a href="#inicio" aria-current="true">Início</a>
+        <a href="#tecnologias">Produtos</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#processo">Como funciona</a>
+        <a href="#sobre">Sobre</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#encomenda" class="header-button">Criar meu projeto <span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button>
+      </div>
+    </div>
+  </header>
 
-    <header class="header">
-        <a href="#" class="logo">
-    PLASSO<span class="logo-mark"></span>
-            </a>
-            
-        <nav class="navigation">
-            <a href="#inicio">Início</a>
-            <a href="#tecnologias">Produtos</a>
-            <a href="#projetos">Projetos</a>
-            <a href="#processo">Como funciona</a>
-            <a href="#sobre">Sobre</a>
-        </nav>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <span class="eyebrow">Estúdio criativo de fabricação personalizada</span>
+        <h1>Ideias que<br>ganham <em>forma.</em></h1>
+        <p class="hero-description">Um estúdio criativo com o calor de um ateliê e a precisão da fabricação moderna. Transformamos sua ideia em um objeto feito com cuidado.</p>
+        <div class="hero-actions">
+          <a href="#encomenda" class="button-primary">Criar meu projeto <span aria-hidden="true">↗</span></a>
+          <a href="#projetos" class="button-secondary">Ver projetos</a>
+        </div>
+        <div class="hero-note"><span class="note-line"></span>Pequenas ideias. Objetos com significado.</div>
+      </div>
 
-        <a href="#encomenda" class="header-button">
-            Criar meu projeto
-            <span>↗</span>
-        </a>
-    </header>
-
-    <main>
-
-        <section class="hero" id="inicio">
-
-            <div class="hero-content">
-
-                <span class="eyebrow">
-                    ESTÚDIO CRIATIVO · FABRICAÇÃO PERSONALIZADA
-                </span>
-
-                <h1>
-                    Ideias que<br>
-                    ganham <em>forma.</em>
-                </h1>
-
-                <p class="hero-description">
-                    Um estúdio criativo com o calor de um ateliê
-                    e a precisão da fabricação moderna.
-                    Transformamos sua ideia em um objeto
-                    feito com cuidado.
-                </p>
-
-                <div class="hero-actions">
-                    <a href="#encomenda" class="button-primary">
-                        Criar meu projeto
-                        <span>↗</span>
-                    </a>
-
-                    <a href="#projetos" class="button-secondary">
-                        Ver projetos
-                    </a>
-                </div>
-
-                <div class="hero-note">
-                    <span class="note-line"></span>
-                    Pequenas ideias. Objetos com significado.
-                </div>
-
-            </div>
-
-            <div class="hero-visual">
-
-                <div class="visual-label">
-                    <span>01 / PLASSO STUDIO</span>
-                    <span>FEITO COM CUIDADO</span>
-                </div>
-
-                <div class="product-scene">
-
-                    <div class="wood-surface"></div>
-
-                    <div class="product-card">
-                        <span class="product-card-label">PLASSO</span>
-
-                        <div class="product-symbol">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-
-                        <span class="product-card-bottom">
-                            IDEIAS QUE GANHAM FORMA
-                        </span>
-                    </div>
-
-                    <div class="small-product">
-                        <span class="small-product-hole"></span>
-                        <span class="small-product-text">P</span>
-                    </div>
-
-                    <div class="scene-caption">
-                        <span>OBJETOS PERSONALIZADOS</span>
-                        <span>01 — 03</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
+      <div class="hero-visual">
+        <div class="visual-label"><span>01 / Plasso Studio</span><span>Feito com cuidado</span></div>
+        <!-- Quando tiver a foto real, troque o conteúdo de .product-scene por: <img src="assets/images/hero.jpg" alt="..."> -->
+        <div class="product-scene" role="img" aria-label="Ilustração: cartão e chaveiro personalizados sobre madeira clara">
+          <div class="wood-surface"></div>
+          <div class="product-card">
+            <span class="product-card-label">PLASSO</span>
+            <div class="product-symbol"><span></span><span></span><span></span></div>
+            <span class="product-card-bottom">Ideias que ganham forma</span>
+          </div>
+          <div class="small-product"><span class="small-product-hole"></span><span class="small-product-text">P</span></div>
+          <div class="scene-caption"><span>Objetos personalizados</span><span>01 — 03</span></div>
+        </div>
+        <div class="dimension" aria-hidden="true">Ø 40 mm, exemplo</div>
+      </div>
+    </section>
+  </main>
+  <script src="js/main.js"></script>
 </body>
 </html>
