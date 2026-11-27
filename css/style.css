@@ -1,6 +1,3 @@
-/* PLASSO — cabeçalho + hero
-   ESCALA: todos os tamanhos usam rem. Para aumentar ou diminuir o site inteiro,
-   mexa só no font-size do html logo abaixo. */
 
 :root{
   --color-burgundy:#6E263B; --color-burgundy-dark:#572033;
@@ -18,7 +15,6 @@ button{font:inherit;cursor:pointer}
 :focus-visible{outline:2px solid var(--color-burgundy);outline-offset:3px;border-radius:2px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 
-/* ===== HEADER ===== */
 .header{position:sticky;top:0;z-index:50;background:rgba(244,238,229,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(67,53,47,.12)}
 .header-inner{max-width:var(--max);margin:auto;padding:0 var(--gutter);min-height:5.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem}
 .logo{display:inline-flex;align-items:center;gap:.35rem;font:600 1.75rem/1 var(--font-heading);letter-spacing:.07em;color:var(--color-burgundy)}
@@ -43,7 +39,7 @@ button{font:inherit;cursor:pointer}
 .button-secondary::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--color-clay);transform:scaleX(.35);transform-origin:left;transition:transform .3s var(--ease)}
 .button-secondary:hover::after{transform:scaleX(1)}
 
-/* ===== HERO ===== */
+
 .hero{max-width:var(--max);margin:auto;min-height:calc(100svh - 5.5rem);padding:clamp(3rem,6vw,6rem) var(--gutter);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:clamp(2.5rem,5vw,6rem)}
 .eyebrow{display:block;margin-bottom:1.75rem;font-size:1rem;font-weight:600;color:var(--color-muted)}
 .hero h1{font:500 clamp(4rem,8.2vw,8.5rem)/.96 var(--font-heading);letter-spacing:-.035em;color:var(--color-burgundy)}
@@ -72,12 +68,12 @@ button{font:inherit;cursor:pointer}
 .small-product-hole{position:absolute;top:.6rem;left:50%;width:.7rem;height:.7rem;background:#E8D9C7;border:2px solid #8B465B;border-radius:50%;transform:translateX(-50%)}
 .small-product-text{margin-top:.7rem;font:500 2.2rem/1 var(--font-heading);color:var(--color-cream)}
 .scene-caption{position:absolute;left:1.4rem;right:1.4rem;bottom:1.1rem;display:flex;justify-content:space-between;font-size:.8125rem;font-weight:600;color:rgba(67,53,47,.8)}
-/* detalhe de desenho técnico: cota abaixo da cena */
+
 .dimension{display:flex;align-items:center;gap:.7rem;margin-top:1rem;font-size:.875rem;color:var(--color-muted)}
 .dimension::before,.dimension::after{content:"";flex:1;border-top:1.5px dashed var(--color-clay)}
 .hero-visual::before{content:"";position:absolute;left:-.6rem;top:1.9rem;width:1.3rem;height:1.3rem;border-left:1.5px solid var(--color-clay);border-top:1.5px solid var(--color-clay);z-index:2}
 
-/* ===== RESPONSIVO ===== */
+
 @media (max-width:62rem){
   .navigation{position:fixed;inset:5.5rem 0 0;background:var(--color-cream);flex-direction:column;align-items:flex-start;gap:1.5rem;padding:2.5rem var(--gutter);transform:translateX(100%);transition:transform .4s var(--ease)}
   .navigation.is-open{transform:none}
