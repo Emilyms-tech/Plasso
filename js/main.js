@@ -53,3 +53,70 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+// ===== CARROSSEL DE PRODUTOS =====
+const productTrack = document.querySelector('#product-track');
+const productSlides = document.querySelectorAll('.carousel-slide');
+const productDots = document.querySelectorAll('.carousel-dot');
+const productPrev = document.querySelector('#product-prev');
+const productNext = document.querySelector('#product-next');
+
+if (productTrack && productSlides.length) {
+  let currentProduct = 0;
+
+  function showProduct(index) {
+    currentProduct = (index + productSlides.length) % productSlides.length;
+
+    productTrack.style.transform =
+      `translateX(-${currentProduct * 100}%)`;
+
+    productDots.forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === currentProduct);
+      dot.setAttribute('aria-current', i === currentProduct ? 'true' : 'false');
+    });
+  }
+
+  productNext?.addEventListener('click', () => {
+    showProduct(currentProduct + 1);
+  });
+
+  productPrev?.addEventListener('click', () => {
+    showProduct(currentProduct - 1);
+  });
+
+  productDots.forEach((dot, i) => {
+    dot.addEventListener('click', () => showProduct(i));
+  });
+
+  showProduct(0);
+}
+// ===== MODO CLARO / ESCURO =====
+const themeToggle = document.querySelector('#theme-toggle');
+
+function applyTheme(theme) {
+  document.body.setAttribute('data-theme', theme);
+
+  if (!themeToggle) return;
+
+  const isDark = theme === 'dark';
+  const icon = themeToggle.querySelector('.theme-icon');
+  const label = themeToggle.querySelector('.theme-label');
+
+  if (icon) icon.textContent = isDark ? '☀' : '☾';
+  if (label) label.textContent = isDark ? 'Claro' : 'Escuro';
+
+  themeToggle.setAttribute(
+    'aria-label',
+    isDark ? 'Ativar modo claro' : 'Ativar modo escuro'
+  );
+}
+
+const savedTheme = localStorage.getItem('plasso-theme') || 'light';
+applyTheme(savedTheme);
+
+themeToggle?.addEventListener('click', () => {
+  const currentTheme = document.body.getAttribute('data-theme');
+  const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+  applyTheme(nextTheme);
+  localStorage.setItem('plasso-theme', nextTheme);
+});
