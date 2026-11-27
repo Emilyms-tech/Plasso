@@ -1,122 +1,288 @@
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Ano automático no rodapé
-  const year = document.querySelector("#year");
-  if (year) year.textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', () => {
 
-  // Menu mobile
-  const toggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".navigation");
+  // ==========================================
+  // 1. MENU DE NAVEGAÇÃO
+  // ==========================================
 
-  if (toggle && nav) {
-    const setMenu = (open) => {
-      nav.classList.toggle("is-open", open);
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.textContent = open ? "Fechar" : "Menu";
-    };
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navigation = document.querySelector('.navigation');
 
-    toggle.addEventListener("click", () => {
-      setMenu(!nav.classList.contains("is-open"));
-    });
+  function setMenu(open) {
+    if (!menuToggle || !navigation) return;
 
-    nav.addEventListener("click", (event) => {
-      if (event.target.closest("a")) setMenu(false);
-    });
+    navigation.classList.toggle('is-open', open);
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") setMenu(false);
-    });
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.textContent = open ? 'Fechar' : 'Menu';
   }
 
-  // Filtros da galeria de projetos
-  const filters = document.querySelectorAll("[data-filter]");
-  const works = document.querySelectorAll("[data-cat]");
+  menuToggle?.addEventListener('click', () => {
+    const isOpen = navigation.classList.contains('is-open');
+    setMenu(!isOpen);
+  });
 
-  filters.forEach((button) => {
-    button.addEventListener("click", () => {
-      const category = button.dataset.filter;
+  navigation?.addEventListener('click', event => {
+    if (event.target.closest('a')) {
+      setMenu(false);
+    }
+  });
 
-      filters.forEach((item) => {
-        item.setAttribute(
-          "aria-pressed",
-          String(item === button)
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      setMenu(false);
+    }
+  });
+
+
+  // ==========================================
+  // 2. ANO AUTOMÁTICO NO RODAPÉ
+  // ==========================================
+
+  const yearElements = document.querySelectorAll('[data-year]');
+
+  yearElements.forEach(element => {
+    element.textContent = new Date().getFullYear();
+  });
+
+
+  // ==========================================
+  // 3. MODO CLARO E ESCURO
+  // ==========================================
+
+  const themeButton = document.querySelector('#theme-toggle');
+
+  function applyTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+
+    if (!themeButton) return;
+
+    const icon = themeButton.querySelector('.theme-toggle-icon');
+    const label = themeButton.querySelector('.theme-toggle-label');
+
+    const isDark = theme === 'dark';
+
+    if (icon) {
+      icon.textContent = isDark ? '☀' : '☾';
+    }
+
+    if (label) {
+      label.textContent = isDark ? 'Claro' : 'Escuro';
+    }
+
+    themeButton.setAttribute(
+      'aria-label',
+      isDark ? 'Ativar modo claro' : 'Ativar modo escuro'
+    );
+  }
+
+  let savedTheme = 'light';
+
+  try {
+    savedTheme = localStorage.getItem('plasso-theme') || 'light';
+  } catch (error) {
+    savedTheme = 'light';
+  }
+
+  applyTheme(savedTheme);
+
+  themeButton?.addEventListener('click', () => {
+    const currentTheme = document.body.getAttribute('data-theme');
+
+    const newTheme =
+      currentTheme === 'dark' ? 'light' : 'dark';
+
+    applyTheme(newTheme);
+
+    try {
+      localStorage.setItem('plasso-theme', newTheme);
+    } catch (error) {
+      // A alternância continua funcionando sem armazenamento.
+    }
+  });
+
+
+  // ==========================================
+  // 4. CARROSSEL DE PRODUTOS
+  // ==========================================
+
+  document.querySelectorAll('[data-carousel]').forEach(carousel => {
+
+    const slides = Array.from(
+      carousel.querySelectorAll('[data-slide]')
+    );
+
+    const dots = Array.from(
+      carousel.querySelectorAll('[data-carousel-dot]')
+    );
+
+    const previousButton = carousel.querySelector(
+      '[data-carousel-prev]'
+    );
+
+    const nextButton = carousel.querySelector(
+      '[data-carousel-next]'
+    );
+
+    const counter = carousel.querySelector(
+      '[data-carousel-count]'
+    );
+
+    if (!slides.length) return;
+
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, i) => {
+        const active = i === currentSlide;
+
+        slide.hidden = !active;
+        slide.classList.toggle('is-active', active);
+      });
+
+      dots.forEach((dot, i) => {
+        const active = i === currentSlide;
+
+        dot.classList.toggle('is-active', active);
+
+        if (active) {
+          dot.setAttribute('aria-current', 'true');
+        } else {
+          dot.removeAttribute('aria-current');
+        }
+      });
+
+      if (counter) {
+        counter.textContent =
+          `${String(currentSlide + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+      }
+    }
+
+    previousButton?.addEventListener('click', () => {
+      showSlide(currentSlide - 1);
+    });
+
+    nextButton?.addEventListener('click', () => {
+      showSlide(currentSlide + 1);
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showSlide(index);
+      });
+    });
+
+    // Navegação por teclado
+    carousel.addEventListener('keydown', event => {
+      if (event.key === 'ArrowRight') {
+        showSlide(currentSlide + 1);
+      }
+
+      if (event.key === 'ArrowLeft') {
+        showSlide(currentSlide - 1);
+      }
+    });
+
+    // Navegação por gesto no celular
+    let touchStartX = 0;
+
+    carousel.addEventListener('touchstart', event => {
+      touchStartX = event.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', event => {
+      const touchEndX = event.changedTouches[0].screenX;
+      const difference = touchStartX - touchEndX;
+
+      if (Math.abs(difference) > 50) {
+        showSlide(
+          difference > 0
+            ? currentSlide + 1
+            : currentSlide - 1
         );
-      });
+      }
+    }, { passive: true });
 
-      works.forEach((work) => {
-        const matches =
-          category === "todos" ||
-          work.dataset.cat === category;
-
-        work.hidden = !matches;
-      });
-    });
+    showSlide(0);
   });
-});
-// ===== CARROSSEL DE PRODUTOS =====
-const productTrack = document.querySelector('#product-track');
-const productSlides = document.querySelectorAll('.carousel-slide');
-const productDots = document.querySelectorAll('.carousel-dot');
-const productPrev = document.querySelector('#product-prev');
-const productNext = document.querySelector('#product-next');
 
-if (productTrack && productSlides.length) {
-  let currentProduct = 0;
 
-  function showProduct(index) {
-    currentProduct = (index + productSlides.length) % productSlides.length;
+  // ==========================================
+  // 5. FILTROS DA GALERIA DE PROJETOS
+  // ==========================================
 
-    productTrack.style.transform =
-      `translateX(-${currentProduct * 100}%)`;
+  const filterButtons = document.querySelectorAll('[data-filter]');
+  const projectItems = document.querySelectorAll('[data-cat]');
 
-    productDots.forEach((dot, i) => {
-      dot.classList.toggle('is-active', i === currentProduct);
-      dot.setAttribute('aria-current', i === currentProduct ? 'true' : 'false');
+  if (filterButtons.length && projectItems.length) {
+
+    filterButtons.forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        const selectedFilter = button.dataset.filter;
+
+        filterButtons.forEach(item => {
+          const active = item === button;
+
+          item.classList.toggle('is-active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+
+        projectItems.forEach(project => {
+
+          const categories = project.dataset.cat
+            .split(' ')
+            .filter(Boolean);
+
+          const visible =
+            selectedFilter === 'todos' ||
+            categories.includes(selectedFilter);
+
+          project.hidden = !visible;
+
+        });
+
+      });
+
     });
+
   }
 
-  productNext?.addEventListener('click', () => {
-    showProduct(currentProduct + 1);
-  });
 
-  productPrev?.addEventListener('click', () => {
-    showProduct(currentProduct - 1);
-  });
+  // ==========================================
+  // 6. FORMULÁRIO DE ENCOMENDA
+  // ==========================================
 
-  productDots.forEach((dot, i) => {
-    dot.addEventListener('click', () => showProduct(i));
-  });
+  const orderForm = document.querySelector('#order-form');
 
-  showProduct(0);
-}
-// ===== MODO CLARO / ESCURO =====
-const themeToggle = document.querySelector('#theme-toggle');
+  if (orderForm) {
 
-function applyTheme(theme) {
-  document.body.setAttribute('data-theme', theme);
+    orderForm.addEventListener('submit', event => {
 
-  if (!themeToggle) return;
+      event.preventDefault();
 
-  const isDark = theme === 'dark';
-  const icon = themeToggle.querySelector('.theme-icon');
-  const label = themeToggle.querySelector('.theme-label');
+      if (!orderForm.checkValidity()) {
+        orderForm.reportValidity();
+        return;
+      }
 
-  if (icon) icon.textContent = isDark ? '☀' : '☾';
-  if (label) label.textContent = isDark ? 'Claro' : 'Escuro';
+      const confirmation = document.querySelector('#confirmation');
 
-  themeToggle.setAttribute(
-    'aria-label',
-    isDark ? 'Ativar modo claro' : 'Ativar modo escuro'
-  );
-}
+      if (confirmation) {
+        orderForm.hidden = true;
+        confirmation.hidden = false;
 
-const savedTheme = localStorage.getItem('plasso-theme') || 'light';
-applyTheme(savedTheme);
+        confirmation.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
 
-themeToggle?.addEventListener('click', () => {
-  const currentTheme = document.body.getAttribute('data-theme');
-  const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    });
 
-  applyTheme(nextTheme);
-  localStorage.setItem('plasso-theme', nextTheme);
+  }
+
 });
