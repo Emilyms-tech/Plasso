@@ -1,0 +1,50 @@
+/* Página de projetos — alinhada à identidade original Plasso */
+.portfolio-page{background:var(--color-cream);color:var(--color-brown)}
+.portfolio-intro{max-width:var(--max);margin:auto;padding:clamp(3.8rem,7vw,6.5rem) var(--gutter) clamp(2.5rem,4vw,3.8rem);display:grid;grid-template-columns:1.05fr .75fr;gap:clamp(2rem,7vw,7rem);align-items:end}
+.portfolio-intro h1{font:500 clamp(3.6rem,7vw,7rem)/.98 var(--font-heading);letter-spacing:-.04em;color:var(--color-burgundy);margin:0}
+.portfolio-intro h1 em,.portfolio-invite h2 em{font-style:normal;color:var(--color-clay-deep)}
+.portfolio-intro>p{max-width:28rem;margin:0 0 .5rem;color:var(--color-muted);font-size:clamp(1.05rem,1.35vw,1.3rem);line-height:1.7}
+.portfolio-content{max-width:var(--max);margin:0 auto;padding:0 var(--gutter) clamp(4rem,7vw,7rem)}
+.portfolio-toolbar{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2rem}
+.portfolio-note{color:var(--color-muted);font-size:.98rem}
+.project-filters{display:flex;flex-wrap:wrap;gap:.55rem;margin:0}
+.filter-button{appearance:none;border:1px solid rgba(67,53,47,.22);background:transparent;border-radius:999px;padding:.58rem 1.15rem;font:500 .9rem/1.2 var(--font-body);color:var(--color-brown);transition:background .2s,color .2s,border-color .2s;cursor:pointer}
+.filter-button:hover,.filter-button[aria-pressed="true"]{background:var(--color-burgundy);border-color:var(--color-burgundy);color:var(--color-white)}
+.portfolio-grid{display:grid;grid-template-columns:1.18fr 1fr;gap:clamp(1.5rem,3vw,2.8rem) clamp(1.2rem,2.2vw,2rem);align-items:start}
+.portfolio-card{min-width:0}
+.portfolio-card--feature{grid-row:span 2}
+.portfolio-image{position:relative;display:block;isolation:isolate;overflow:hidden;aspect-ratio:1.5;border-radius:.35rem;background:#D9C0A0;box-shadow:inset 0 0 0 1px rgba(67,53,47,.08)}
+.portfolio-card--feature .portfolio-image{aspect-ratio:.92}
+.portfolio-image::before{content:"";position:absolute;inset:0;z-index:-2;background:repeating-linear-gradient(90deg,transparent 0 2.2rem,rgba(115,78,48,.11) 2.25rem,transparent 2.4rem),linear-gradient(135deg,#E2CCAF,#C6A47C 50%,#DCC3A1);transition:transform .6s var(--ease)}
+.portfolio-image:hover::before{transform:scale(1.035)}
+.portfolio-image::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(145deg,rgba(255,255,255,.15),transparent 45%,rgba(67,53,47,.08))}
+.image-index{position:absolute;top:1rem;left:1rem;font-size:.75rem;letter-spacing:.12em;color:rgba(67,53,47,.72);background:rgba(244,238,229,.7);padding:.3rem .5rem;border-radius:2px}
+.image-caption{position:absolute;left:.85rem;bottom:.85rem;background:rgba(244,238,229,.92);color:var(--color-muted);font-size:.72rem;padding:.35rem .55rem;border-radius:2px}
+.wood-piece{position:absolute;left:50%;top:50%;display:flex;align-items:center;justify-content:center;background:#F4EEE5;box-shadow:0 1.5rem 2.5rem rgba(67,53,47,.22),0 .25rem .6rem rgba(67,53,47,.1);transform:translate(-50%,-50%);transition:transform .5s var(--ease)}
+.portfolio-image:hover .wood-piece{transform:translate(-50%,-50%) rotate(0deg) scale(1.035)}
+.wood-piece--tag{width:34%;aspect-ratio:1;border-radius:22%;background:var(--color-burgundy);transform:translate(-50%,-50%) rotate(-9deg);color:var(--color-cream)}
+.tag-hole{position:absolute;top:10%;width:8%;aspect-ratio:1;border:2px solid #D9C0A0;border-radius:50%}
+.tag-letter{font:500 clamp(2rem,5vw,4rem)/1 var(--font-heading);margin-top:.25em}
+.wood-piece--plaque{width:63%;aspect-ratio:1.8;border-radius:.25rem;background:linear-gradient(135deg,#EBD8BC,#D6B990);transform:translate(-50%,-50%) rotate(-5deg);font:500 clamp(.8rem,1.4vw,1.2rem) var(--font-heading);letter-spacing:.06em;color:#7D5B3D}
+.wood-piece--card{width:65%;aspect-ratio:1.62;border-radius:.35rem;transform:translate(-50%,-50%) rotate(6deg);background:#FFFCF8;color:var(--color-burgundy);padding:1rem;display:flex;align-items:flex-start;justify-content:space-between}
+.nfc-symbol{font-size:clamp(1.5rem,3vw,3rem);letter-spacing:-.25em;transform:rotate(90deg);margin-left:.2em}
+.nfc-word{align-self:flex-end;font:600 .9rem/1.2 var(--font-body);letter-spacing:.12em}.nfc-word small{font-size:.55rem;letter-spacing:.04em;color:var(--color-muted)}
+.wood-piece--gift{width:43%;aspect-ratio:1.05;background:#F1E5D4;border-radius:.25rem;transform:translate(-50%,-50%) rotate(7deg)}
+.gift-ribbon{position:absolute;inset:0 42%;background:var(--color-clay);opacity:.9}.gift-ribbon::after{content:"";position:absolute;left:-75%;top:42%;width:250%;height:16%;background:var(--color-clay)}
+.gift-label{position:relative;z-index:1;font:500 1.1rem var(--font-heading);color:var(--color-burgundy);background:rgba(244,238,229,.85);padding:.25rem .5rem}
+.wood-piece--decor{width:48%;aspect-ratio:.85;background:#F4EEE5;border-radius:45% 45% 10% 10%;transform:translate(-50%,-50%) rotate(-4deg)}
+.decor-arch{position:absolute;bottom:18%;width:46%;height:50%;border:1.1rem solid var(--color-burgundy);border-bottom:0;border-radius:50% 50% 0 0}
+.decor-dot{position:absolute;right:12%;top:15%;width:1.5rem;aspect-ratio:1;background:var(--color-clay);border-radius:50%}
+.portfolio-card-info{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 0 .2rem}
+.portfolio-category{display:block;color:var(--color-muted);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.35rem}
+.portfolio-card-info h2{font:500 clamp(1.25rem,2vw,1.8rem)/1.2 var(--font-heading);color:var(--color-brown);margin:0}
+.portfolio-arrow{flex:0 0 2.5rem;width:2.5rem;height:2.5rem;border:1px solid rgba(110,38,59,.25);border-radius:50%;display:grid;place-items:center;color:var(--color-burgundy);font-size:1.2rem;transition:background .2s,color .2s,transform .2s}
+.portfolio-arrow:hover{background:var(--color-burgundy);color:var(--color-cream);transform:translate(2px,-2px)}
+.portfolio-disclaimer{margin-top:1.5rem;color:var(--color-muted);font-size:.8rem}
+.portfolio-invite{max-width:var(--max);margin:0 auto;padding:clamp(3rem,6vw,5.5rem) var(--gutter);background:#EEE4D5;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.portfolio-invite h2{font:500 clamp(2.8rem,5.5vw,5rem)/1 var(--font-heading);color:var(--color-burgundy);letter-spacing:-.03em;margin:.5rem 0 1rem}
+.portfolio-invite p{max-width:30rem;color:var(--color-muted);font-size:1.05rem}
+.portfolio-invite .button-primary{white-space:nowrap}
+.portfolio-card[hidden]{display:none!important}
+@media(max-width:58rem){.portfolio-intro{grid-template-columns:1fr;gap:1.5rem}.portfolio-intro>p{max-width:34rem}.portfolio-grid{grid-template-columns:1fr 1fr}.portfolio-card--feature{grid-row:auto;grid-column:1/-1}.portfolio-card--feature .portfolio-image{aspect-ratio:1.7}.portfolio-invite{align-items:flex-start;flex-direction:column}}
+@media(max-width:38rem){.portfolio-intro h1{font-size:clamp(3.2rem,15vw,4.7rem)}.portfolio-grid{grid-template-columns:1fr;gap:2rem}.portfolio-card--feature{grid-column:auto}.portfolio-card--feature .portfolio-image{aspect-ratio:1.25}.portfolio-image{aspect-ratio:1.25}.portfolio-card-info h2{font-size:1.45rem}.portfolio-invite h2{font-size:clamp(2.8rem,13vw,4rem)}}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projetos — Plasso</title>
+  <meta name="description" content="Uma seleção de ideias que ganharam forma no estúdio Plasso.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/projetos.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Plasso, início">PLASSO<span class="logo-mark"></span></a>
+      <nav class="navigation" id="navigation" aria-label="Principal">
+        <a href="index.html">Início</a><a href="produtos.html">Produtos</a><a href="projetos.html" aria-current="true">Projetos</a><a href="como-funciona.html">Como funciona</a><a href="sobre.html">Sobre</a>
+      </nav>
+      <div class="header-actions"><a href="encomenda.html" class="header-button">Criar meu projeto <span aria-hidden="true">↗</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu</button></div>
+    </div>
+  </header>
+
+  <main class="portfolio-page">
+    <section class="portfolio-intro">
+      <div>
+        <span class="page-kicker">Portfólio · Plasso Studio</span>
+        <h1>Projetos feitos<br>com <em>cuidado.</em></h1>
+      </div>
+      <p>Pequenas ideias, transformadas em objetos que carregam um pouco de quem os imaginou.</p>
+    </section>
+
+    <section class="portfolio-content" aria-label="Galeria de projetos">
+      <div class="portfolio-toolbar">
+        <p class="portfolio-note">Uma seleção de peças e possibilidades do nosso ateliê.</p>
+        <div class="project-filters" aria-label="Filtrar projetos">
+          <button class="filter-button" data-filter="todos" aria-pressed="true">Todos</button>
+          <button class="filter-button" data-filter="chaveiros" aria-pressed="false">Chaveiros</button>
+          <button class="filter-button" data-filter="gravacoes" aria-pressed="false">Gravações</button>
+          <button class="filter-button" data-filter="nfc" aria-pressed="false">NFC</button>
+          <button class="filter-button" data-filter="presentes" aria-pressed="false">Presentes</button>
+          <button class="filter-button" data-filter="decoracao" aria-pressed="false">Decoração</button>
+        </div>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="portfolio-card portfolio-card--feature" data-category="chaveiros">
+          <a class="portfolio-image portfolio-image--keychain" href="encomenda.html" aria-label="Solicitar chaveiro personalizado">
+            <span class="image-index">01 / 05</span>
+            <span class="wood-piece wood-piece--tag"><span class="tag-hole"></span><span class="tag-letter">P</span></span>
+            <span class="image-caption">Chaveiro personalizado · exemplo</span>
+          </a>
+          <div class="portfolio-card-info"><div><span class="portfolio-category">Impressão 3D · Personalização</span><h2>Um detalhe só seu</h2></div><a class="portfolio-arrow" href="encomenda.html" aria-label="Encomendar algo parecido">↗</a></div>
+        </article>
+
+        <article class="portfolio-card" data-category="gravacoes">
+          <a class="portfolio-image portfolio-image--engrave" href="encomenda.html" aria-label="Solicitar placa gravada">
+            <span class="image-index">02 / 05</span><span class="wood-piece wood-piece--plaque"><span>feito com cuidado</span></span>
+            <span class="image-caption">Placa gravada · exemplo</span>
+          </a>
+          <div class="portfolio-card-info"><div><span class="portfolio-category">Gravação a laser</span><h2>Marcas que ficam</h2></div><a class="portfolio-arrow" href="encomenda.html" aria-label="Encomendar algo parecido">↗</a></div>
+        </article>
+
+        <article class="portfolio-card" data-category="nfc">
+          <a class="portfolio-image portfolio-image--nfc" href="encomenda.html" aria-label="Solicitar cartão NFC">
+            <span class="image-index">03 / 05</span><span class="wood-piece wood-piece--card"><span class="nfc-symbol">)))</span><span class="nfc-word">PLASSO<br><small>tap to connect</small></span></span>
+            <span class="image-caption">Cartão NFC · exemplo</span>
+          </a>
+          <div class="portfolio-card-info"><div><span class="portfolio-category">NFC · Tecnologia</span><h2>Um toque, uma conexão</h2></div><a class="portfolio-arrow" href="encomenda.html" aria-label="Encomendar algo parecido">↗</a></div>
+        </article>
+
+        <article class="portfolio-card" data-category="presentes">
+          <a class="portfolio-image portfolio-image--gift" href="encomenda.html" aria-label="Solicitar presente personalizado">
+            <span class="image-index">04 / 05</span><span class="wood-piece wood-piece--gift"><span class="gift-ribbon"></span><span class="gift-label">para você</span></span>
+            <span class="image-caption">Presente personalizado · exemplo</span>
+          </a>
+          <div class="portfolio-card-info"><div><span class="portfolio-category">Presentes · Feito sob medida</span><h2>Presentear com intenção</h2></div><a class="portfolio-arrow" href="encomenda.html" aria-label="Encomendar algo parecido">↗</a></div>
+        </article>
+
+        <article class="portfolio-card" data-category="decoracao">
+          <a class="portfolio-image portfolio-image--decor" href="encomenda.html" aria-label="Solicitar objeto decorativo">
+            <span class="image-index">05 / 05</span><span class="wood-piece wood-piece--decor"><span class="decor-arch"></span><span class="decor-dot"></span></span>
+            <span class="image-caption">Objeto decorativo · exemplo</span>
+          </a>
+          <div class="portfolio-card-info"><div><span class="portfolio-category">Decoração · Impressão 3D</span><h2>Formas para o seu espaço</h2></div><a class="portfolio-arrow" href="encomenda.html" aria-label="Encomendar algo parecido">↗</a></div>
+        </article>
+      </div>
+      <p class="portfolio-disclaimer">As imagens são composições ilustrativas. As fotografias dos produtos reais podem ser adicionadas substituindo cada composição.</p>
+    </section>
+
+  </main>
+
+  <section class="cta-wrap"><div class="cta-block"><div><h2>Tem uma ideia?</h2><p>Conte o que imaginou. Nós ajudamos a transformar sua ideia em um produto real.</p></div><a class="button-light" href="encomenda.html">Solicitar orçamento <span aria-hidden="true">↗</span></a></div></section>
+  <footer class="footer"><div class="container"><div class="footer-grid">
+    <div><a href="index.html" class="logo">PLASSO<span class="logo-mark"></span></a><p class="footer-tagline">Ideias que ganham forma.</p></div>
+    <div><h4>Navegação</h4><ul><li><a href="produtos.html">Produtos</a></li><li><a href="projetos.html">Projetos</a></li><li><a href="como-funciona.html">Como funciona</a></li><li><a href="sobre.html">Sobre</a></li></ul></div>
+    <div><h4>Contato</h4><ul><li><a href="encomenda.html">Solicitar orçamento</a></li><li>E-mail e WhatsApp: a definir</li></ul></div><div><h4>Redes sociais</h4><ul><li>Perfis: a definir</li></ul></div>
+  </div><div class="footer-base"><span>© Plasso. Informações da empresa: a definir.</span><span>Protótipo com dados ilustrativos.</span></div></div></footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
