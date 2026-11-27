@@ -210,7 +210,7 @@ O processo de publicação envolveu as seguintes etapas:
 
 Com essa configuração, o site passou a ficar disponível publicamente pela internet, permitindo que outras pessoas acessem e naveguem pela interface sem precisar baixar os arquivos do projeto.
 
-**Link do site publicado:** https://emilyms-tech.github.io/Plasso/produtos.html
+**Link do site publicado:** https://emilyms-tech.github.io/Plasso/index.html
 
 O GitHub Pages foi utilizado como solução de hospedagem da versão front-end do projeto.
 
